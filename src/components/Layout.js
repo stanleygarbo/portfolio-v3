@@ -5,7 +5,6 @@ import BottomBackdrop from '../images/backdrop.svg'
 import {graphql,useStaticQuery,Link} from 'gatsby'
 
 const GlobalStyles = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,700&display=swap');
 
     html{
         scroll-behavior:smooth;
@@ -110,7 +109,7 @@ const Footer = styled.footer`
                 flex-direction:column;
 
                 a{
-                    color:#999;
+                    color:#d4d4d4;
                     font-size:14px;
                     text-decoration:none;
                 }

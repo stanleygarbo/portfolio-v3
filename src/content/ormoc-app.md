@@ -6,6 +6,7 @@ download: https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40sta
 tags: React Native,Redux,NodeJS,React,TS,JS
 summary: A fullstack platform with CRUD functionalities and can be integrated with the contact tracing system 
 image: https://res.cloudinary.com/dr4q1cnig/image/upload/v1615095481/portfolio%20images/ormoc-app_hmhcgb.jpg
+rank: 1
 ---
 
 

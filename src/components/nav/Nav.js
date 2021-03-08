@@ -153,25 +153,35 @@ const Nav = () => {
         setScrollY(window.scrollY)
     }
 
+    const keyDownHandler = (e) =>{
+        if(e.key === "Escape") {
+            setIsMenuOpen(!isMenuOpen)
+        }
+    }
+
+    const menuClickHandler = () =>{
+        setIsMenuOpen(!isMenuOpen)
+    }
+
     return (
         <StyledNav isMenuOpen = {isMenuOpen} >
             <div className='wrapper'>
                 <StyledGatsbyLink to='/'><p>Garbo</p></StyledGatsbyLink>
                 <Links scrollY={scrollY}/>
-                <div className='hamburger' onClick={()=>setIsMenuOpen(!isMenuOpen)}>
+                <div className='hamburger' aria-label='hamburger button' role = "button" tabIndex={0} onKeyPress={keyDownHandler} onClick={menuClickHandler}>
                     <div className='line'></div>
                     <div className='line'></div>
                     <div className='line'></div>
                 </div>
                 <div className='menu'>
                     <div className='options'>
-                        <Links scrollY={0} isInMenu={true}/>
+                        <Links scrollY={0} isInMenu={true} onClick={menuClickHandler}/>
                         <a href='mailto:stanleygarbo@gmail.com' className='hoverable-text'>
                             stanleygarbo@gmail.com
                         </a>
                         <Socials direction='row'/>
                     </div>
-                    <div className='backdrop' onClick={()=>setIsMenuOpen(!isMenuOpen)}></div>
+                    <div className='backdrop' role='button' aria-label='backdrop' tabIndex={0} onKeyPress={keyDownHandler} onClick={menuClickHandler}></div>
                 </div>
             </div>
         </StyledNav>
@@ -193,6 +203,7 @@ const Ul = styled.ul`
         margin: 0px 0px 0px 50px;
         a{
             color:#444;
+            text-decoration:none;
         }
     }
 
@@ -222,25 +233,25 @@ const StyledGatsbyLink = styled(Link)`
     color:#444;
 `
 
-const Links = ({scrollY,isInMenu}) =>{
-    const LinksArray = [
-        {
-            name:'Home',
-            href:'/'
-        },
-        {
-            name:'About',
-            href:'/about'
-        },
-        {
-            name:'Projects',
-            href:'/projects'
-        },
-        {
-            name:'Contact',
-            href:'/contact'
-        },
-    ]
+const Links = ({scrollY,isInMenu,onClick}) =>{
+    // const LinksArray = [
+    //     {
+    //         name:'Home',
+    //         href:'/'
+    //     },
+    //     {
+    //         name:'About',
+    //         href:'/about'
+    //     },
+    //     {
+    //         name:'Projects',
+    //         href:'/projects'
+    //     },
+    //     {
+    //         name:'Contact',
+    //         href:'/contact'
+    //     },
+    // ]
 
     return <Ul scrollY={scrollY} isInMenu={isInMenu}>
         {/* {LinksArray.map((link,i)=>
@@ -248,16 +259,16 @@ const Links = ({scrollY,isInMenu}) =>{
                 <StyledGatsbyLink to={link.href}>{link.name}</StyledGatsbyLink>
             </li>
         )} */}
-        <li className='hoverable-text'>
+        <li className='hoverable-text' onClick={onClick}>
             <StyledGatsbyLink to='/'>Home</StyledGatsbyLink>
         </li>
-        <li className='hoverable-text' >
+        <li className='hoverable-text' onClick={onClick}>
             <StyledGatsbyLink to='/#about'>About</StyledGatsbyLink>
         </li>
-        <li className='hoverable-text' >
+        <li className='hoverable-text' onClick={onClick}>
             <StyledGatsbyLink to='/#projects'>Projects</StyledGatsbyLink>
         </li>
-        <li className='hoverable-text' >
+        <li className='hoverable-text' onClick={onClick}>
             <a href='mailto:stanleygarbo@gmail.com'>Contact</a>
         </li>
     </Ul>

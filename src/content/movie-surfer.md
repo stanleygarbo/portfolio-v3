@@ -7,6 +7,7 @@ summary: A web app that allows you to find information on movies
 demo: https://movie-surfer.netlify.app
 code: https://github.com/stanleygarbo/movie-surfer
 image: https://res.cloudinary.com/dr4q1cnig/image/upload/v1615187016/portfolio%20images/movie-surfer1_ef6b3p.png
+rank: 2
 ---
 
 
@@ -23,7 +24,7 @@ image: https://res.cloudinary.com/dr4q1cnig/image/upload/v1615187016/portfolio%2
 # Movie Surfer (TMDB APIs)
 
 
->A movie information site.
+>A movie information site. The data is fetched from the TMDB API.
 
 </div>
 

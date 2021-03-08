@@ -35,21 +35,21 @@ module.exports = {
         name: `Stanley Garbo - Portfolio`,
         short_name: `Garbo`,
         start_url: `/`,
-        background_color: `#333`,
-        theme_color: `#333`,
+        background_color: `#ffffff`,
+        theme_color: `#7555f5`,
         display: `standalone`,
         icon:`src/images/gatsby-icon.png`
       },
     },
-    { 
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true,
-      },
-    },
+    // { 
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     // The property ID; the tracking code won't be generated without it
+    //     trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+    //     // Defines where to place the tracking script - `true` in the head and `false` in the body
+    //     head: true,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {

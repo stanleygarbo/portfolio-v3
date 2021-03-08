@@ -13,7 +13,7 @@ const IndexPage = () => {
       <SEO 
         title="Home" 
         description="Stanley Garbo's Portfolio Website "
-        canonicalHref='https://www.coderko.tech' 
+        canonicalHref='https://stanleygarbo.com' 
         lang='en'
         image='https://res.cloudinary.com/dr4q1cnig/image/upload/v1615194004/portfolio%20images/portfolio_ztcgs0.png'
       />

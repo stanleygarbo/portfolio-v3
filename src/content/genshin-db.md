@@ -7,6 +7,7 @@ summary: My take on building a wiki for Genshin Impact with Static Site Generati
 demo: https://genshin-db.netlify.app
 code: https://github.com/stanleygarbo/genshin-db
 image: https://res.cloudinary.com/dr4q1cnig/image/upload/v1614937810/portfolio%20images/genshin-db1_flf5ct.png
+rank: 3
 ---
 
 

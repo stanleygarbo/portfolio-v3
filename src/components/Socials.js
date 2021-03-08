@@ -42,14 +42,14 @@ const Container = styled.div`
 const Socials = ({style,direction,small}) => {
     return (
         <Container style={style} direction = {direction} small={small}>
-            <a target='blank' href='https://www.behance.net/stanleygarbo'>
-                <img src={BehanceIcon}></img>
+            <a aria-label='Behance' target='blank' href='https://www.behance.net/stanleygarbo'>
+                <img alt='behance icon' src={BehanceIcon}></img>
             </a>
-            <a target='blank' href='https://www.facebook.com/stanley.garbo29'>
-                <img src={FacebookIcon}></img>
+            <a aria-label='Facebook' target='blank' href='https://www.facebook.com/stanley.garbo29'>
+                <img alt='facebook icon' src={FacebookIcon}></img>
             </a>
-            <a target='blank' href='https://www.instagram.com/garbo.stanley/'>
-                <img src={InstagramIcon}></img>
+            <a aria-label='Instagram' target='blank' href='https://www.instagram.com/garbo.stanley/'>
+                <img alt='instagram icon' src={InstagramIcon}></img>
             </a>
         </Container>
     )

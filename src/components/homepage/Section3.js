@@ -8,7 +8,7 @@ const Section3 = () => {
 
     const data = useStaticQuery(graphql`
     query {
-        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(content)/"  }}) {
+        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(content)/"  }},sort: {fields: frontmatter___rank, order: ASC}) {
             edges{
                 node{
                     frontmatter{
@@ -38,7 +38,7 @@ const Section3 = () => {
             <div className='wrapper2'>
                 {data.allMarkdownRemark.edges.map((edge,i)=>
                     <div className='project' key={i}>
-                        {(i + 1) % 2 !== 0 && <StyledImg className='img' bgurl={edge.node.frontmatter.image}></StyledImg>}
+                        {(i + 1) % 2 !== 0 && <StyledImg className='img' onClick={()=>{navigate(`projects/${edge.node.frontmatter.slug}`)}} bgurl={edge.node.frontmatter.image}></StyledImg>}
                         <div className='text'>
                             <h2>{edge.node.frontmatter.title.toUpperCase()}</h2>
                             <p>{edge.node.frontmatter.summary}</p>
@@ -67,6 +67,7 @@ const StyledImg = styled.div`
     position:relative;
     top:10px;
     right:10px;
+    cursor:pointer;
     
     &::before{
         content:'';

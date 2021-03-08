@@ -353,12 +353,12 @@ const Section2 = () => {
                 <section>
                     <h1>SKILL SETS</h1>
                     <div className='icons'>
-                        <img src={Ps}></img>
-                        <img src={Ai}></img>
-                        <img src={Html5}></img>
-                        <img src={Css3}></img>
-                        <img src={Js}></img>
-                        <img src={ReactIcon}></img>
+                        <img alt='HTML icon' src={Html5}></img>
+                        <img alt='CSS icon' src={Css3}></img>
+                        <img alt='JS icon' src='https://cdn.iconscout.com/icon/free/png-256/javascript-2752148-2284965.png'></img>
+                        <img alt='TS icon' src='https://icons-for-free.com/iconfiles/png/512/vscode+icons+type+typescript-1324451507894042344.png'></img>
+                        <img alt='React icon' src={ReactIcon}></img>
+                        <img alt='Redux icon' src='https://cdn.iconscout.com/icon/free/png-256/redux-283024.png'></img>
                     </div>
                 </section>
             </div>
