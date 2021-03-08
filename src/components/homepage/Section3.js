@@ -1,21 +1,132 @@
 import React from 'react'
 import styled from 'styled-components'
-import Plantasy from '../../images/plantasy.png'
 import PtojectsIllustration from '../../images/projects-illustration.svg'
+import Arrow from '../../images/arrow.svg'
+import {graphql, useStaticQuery, navigate} from 'gatsby'
+
+const Section3 = () => {
+
+    const data = useStaticQuery(graphql`
+    query {
+        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(content)/"  }}) {
+            edges{
+                node{
+                    frontmatter{
+                        title          
+                        summary
+                        tags
+                        slug
+                        image
+                    }
+                }
+            }
+        }
+    }`
+    )
+
+    return (
+        <Container id='projects'>
+            <div className='wrapper'>
+                <div className='projects-text'>
+                    <h1>PROJECTS</h1>
+                    <p>Here are some of my works. I made these to solve certain problems and others just for fun.</p>
+                </div>
+                <div className='img'>
+                    <p>02</p>
+                </div>
+            </div>
+            <div className='wrapper2'>
+                {data.allMarkdownRemark.edges.map((edge,i)=>
+                    <div className='project' key={i}>
+                        {(i + 1) % 2 !== 0 && <StyledImg className='img' bgurl={edge.node.frontmatter.image}></StyledImg>}
+                        <div className='text'>
+                            <h2>{edge.node.frontmatter.title.toUpperCase()}</h2>
+                            <p>{edge.node.frontmatter.summary}</p>
+                            <section>
+                                {
+                                    edge.node.frontmatter.tags.split(',').map((tag,i)=>
+                                        <span key={i}>#{tag}</span>
+                                    )
+                                }
+                            </section>
+                            <button onClick={()=>{navigate(`projects/${edge.node.frontmatter.slug}`)}} className='projects-btn'>Learn more</button>
+                        </div>
+                        {(i + 1) % 2 === 0 && <StyledImg className='img' bgurl={edge.node.frontmatter.image}></StyledImg>}
+                    </div>
+                )}
+                
+            </div>
+        </Container>
+    )
+}
+
+
+
+const StyledImg = styled.div`
+    border: 2px solid #444; 
+    position:relative;
+    top:10px;
+    right:10px;
+    
+    &::before{
+        content:'';
+        position:absolute;
+        width:100%;
+        height:100%;
+        bottom:10px;
+        left:10px;
+        background-repeat:no-repeat;
+        background-position:center;
+        background-size:cover;
+        background-image:url(${props=>props.bgurl});
+    }
+    
+    &::after{
+        content:'';
+        position:absolute;
+        width:100%;
+        height:100%;
+        bottom:10px;
+        left:10px;
+        background-color:#7555f599;
+        transition:.3s;
+    }
+
+    &:hover::after{
+        background-color:#7555f510;
+    }
+
+    @media(max-width:750px){
+        height:300px;
+    }
+
+    @media(max-width:570px){
+        .img{
+            height:250px;
+        }
+    }
+`
+  
+
 
 const Container = styled.div`
     width:100%;
     color:#444;
+    padding:100px 150px 200px 150px;
 
     .wrapper{
-        max-width:1300px;
+        max-width:1100px;
         margin:0 auto;
         display:flex;
         justify-content:space-between;
-
+        
         .projects-text{
+            display:flex;
+            flex-direction:column;
+            align-items:end;
+
             h1{
-                font-size:120px;
+                font-size:80px;
                 position:relative;
                 top:-50px;
                 letter-spacing:10px;
@@ -44,14 +155,14 @@ const Container = styled.div`
             
             p{
                 margin-top:70px;
-                font-size:30px;
+                font-size:22px;
                 width:390px;
                 font-weight:300;
             }
         }
         .img{
-            height:490px;
-            width:400px;
+            width:300px;
+            height:390px;
             background-color:#e6e6e6;
             background-image:url(${PtojectsIllustration});
             background-repeat:no-repeat;
@@ -59,7 +170,8 @@ const Container = styled.div`
             background-position:center;
             position:relative;
             top:-10px;
-            right:66px;
+            right:30px;
+            
 
             &::before{
                 content:'';
@@ -73,47 +185,29 @@ const Container = styled.div`
 
             p{
                 position:absolute;
-                right:-80px;
                 bottom:30px;
-                font-size:140px;
                 font-weight:700;
+                font-size:100px;
+                right:-30px;
             }
         }
     }
 
     .wrapper2{
-        max-width:1300px;
+        max-width:1100px;
         margin:0 auto;
         display:flex;
+        flex-direction:column;
         justify-content:space-between;
-        padding: 100px 0px;
+        padding: 150px 0px 100px 0;
         position:relative;
 
         .project{
             display:grid;
             grid-template-columns:1fr 1fr;
             grid-gap:35px;
-
-            .img{
-                background-color:#e6e6e6;
-                background-image:url(${Plantasy});
-                background-repeat:no-repeat;
-                background-position:center;
-                background-size:cover;
-                position:relative;
-                
-                &::before{
-                    content:'';
-                    position:absolute;
-                    width:100%;
-                    height:100%;
-                    bottom:-20px;
-                    left:-20px;
-                    background:#444;
-                    z-index:-1;
-                }
-            }
-
+            margin-bottom: 130px;
+            
             .text{
                 display:flex;
                 flex-direction:column;
@@ -121,7 +215,7 @@ const Container = styled.div`
                 transform:translateY(-20px);
                 
                 h2{
-                    font-size:80px;
+                    font-size:60px;
                     letter-spacing:8px;
                     position:relative;
 
@@ -137,13 +231,15 @@ const Container = styled.div`
                 }
 
                 p{
-                    font-size:25px;
-                    margin-top:50px;
+                    margin-top:30px;
                     font-weight:300;
+                    font-size:22px;
                 }
 
                 section{
-                    margin-top:50px;
+                    margin-top:30px;
+                    display:flex;
+                    flex-wrap:wrap;
 
                     span{
                         margin:0px 20px 20px 0px;
@@ -152,59 +248,41 @@ const Container = styled.div`
                         border-radius:5px;
                     }
                 }
-            }
-        }
-    }
 
-    
-    @media (max-width:1600px){
-        padding:0px 100px;
-        .wrapper{
-            .img{
-                width:300px;
-                height:390px;
-                
-                p{
-                    font-size:100px;
-                }
-            }
-    
-            .projects-text{
-                h1{
-                    font-size:100px;
-                }
-                p{
-                    font-size:22px;
-                }
-            }
-        }
-    }
-    
-    @media (max-width:1480px){
-        padding:100px 150px;
-        .wrapper{
-            .img{
-                right:30px;
-                p{
-                    font-size:100px;
-                    right:-30px;
-                }
-            }
-    
-            .projects-text{
-                z-index:2;
-                h1{
-                    font-size:100px;
-                }
-            }
-        }
-        
-    
-        .wrapper2{
-            .project{
-                .text{
-                    p{
-                        font-size:22px;
+                .projects-btn{
+                    font-size:16px;
+                    position:relative;
+                    border:none;
+                    background:none;
+                    outline:none;
+                    cursor:pointer;
+                    overflow:hidden;
+                    border-radius:200px;
+                    margin-top:40px;
+                    width:150px;
+                    height:40px;
+                    text-align:left;
+                    padding-left:20px;
+                    padding-right:20px;
+                    background-image:url(${Arrow});
+                    background-size:6%;
+                    background-repeat:no-repeat;
+                    background-position:125px center;
+
+                    &::before{
+                        position:absolute;
+                        top:0;
+                        left:0px;
+                        content:'';
+                        width:40px;
+                        height:40px;
+                        border-radius:100%;
+                        background:#7555f550;
+                        transition:.4s;
+                    }
+
+                    &:hover::before{
+                        transform:scale(10);
                     }
                 }
             }
@@ -216,7 +294,9 @@ const Container = styled.div`
         padding:100px 50px;
 
         .wrapper{
+            justify-content:center;
             .img{
+                margin-left:100px;
                 right:30px;
                 p{
                     font-size:80px;
@@ -245,36 +325,124 @@ const Container = styled.div`
             }
         }
     }
+
+    
+    @media (max-width:950px){
+        .wrapper{
+            .projects-text{
+                h1{
+                    top:0;
+                    font-size:40px;
+
+                    &::after,&::before{
+                        height:4px;
+                    }
+                    
+                    &::before{
+                        bottom:-20px;
+                    }
+
+                    &::after{
+                        bottom:-40px;
+                    }
+                }
+                p{
+                    width:300px;
+                    font-size:20px;
+                }
+            }
+            .img{
+                width:250px;
+                height:310px;
+                p{
+                    font-size:40px;
+                }
+            }
+        }
+        
+        .wrapper2{
+            .project{
+                .text{
+                    h2{
+                        font-size:26px;
+                        &::before{
+                            height:4px;
+                        }
+                    }
+                    p{
+                        font-size:20px;
+                    }
+                }
+            }
+        }
+    }
+
+
+    @media (max-width:750px){
+        .wrapper{
+            padding:0 30px;
+            flex-wrap:wrap-reverse;
+            .projects-text{
+                width:100%;
+                p{
+                    width:100%;
+                }
+            }
+
+            .img{
+                width:100%;
+                margin-left:50px;
+                margin-bottom:100px;
+                height:400px;
+                background-size:150%;
+            }
+        }
+        
+        .wrapper2{
+            .project{
+                padding:0px 30px 0px 30px;
+                // grid-template-columns:100%;
+                display:flex;
+                flex-wrap:wrap;
+                width:100%;
+                margin-bottom:50px;
+
+                .img{
+                    width:100%;
+                }
+
+                .text{
+                    margin-top:50px;
+                }
+
+                section{
+                    display:flex;
+                    flex-wrap:wrap;
+                }
+            }
+            .project:nth-child(even){
+                flex-wrap:wrap-reverse;
+            }
+        }
+    }
+
+    
+    @media (max-width:570px){
+        padding: 0px 30px 200px 30px;
+        .wrapper{
+            .img{
+                width:90%;
+                height:250px;
+            }
+            padding:0;
+        }
+        .wrapper2{
+            .project{
+                padding:40px 0px 0px 0px;
+            }
+        }
+    }
 `
 
-const Section3 = () => {
-    return (
-        <Container>
-            <div className='wrapper'>
-                <div className='projects-text'>
-                    <h1>PROJECTS</h1>
-                    <p>I am currently working on my portfolio still.</p>
-                </div>
-                <div className='img'>
-                    <p>02</p>
-                </div>
-            </div>
-            <div className='wrapper2'>
-                <div className='project'>
-                    <div className='img'></div>
-                    <div className='text'>
-                        <h2>PLANTASY</h2>
-                        <p>Officia incididunt reprehenderit dolore ipsum elit ex veniam pariatur.</p>
-                        <section>
-                            <span>#WebDesign</span>
-                            <span>#Photoshop</span>
-                            <span>#Illustrator</span>
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </Container>
-    )
-}
 
 export default Section3

@@ -4,17 +4,26 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Coderko`,
-    description: `Enhance your web skills and become better as a developer.`,
+    title: `Stanley Garbo - Portfolio`,
+    description: `A fullstack developer's Portfolio Website. This site contains some of his coding projects`,
     author: `@stanleygarbo`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-remark`,
+    // `gatsby-remark-images`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/content`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -23,13 +32,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Coderko - Enhance your skills`,
-        short_name: `Coderko`,
+        name: `Stanley Garbo - Portfolio`,
+        short_name: `Garbo`,
         start_url: `/`,
         background_color: `#333`,
         theme_color: `#333`,
         display: `standalone`,
-        icon:`src/images/final-logo.png`
+        icon:`src/images/gatsby-icon.png`
       },
     },
     { 
@@ -44,14 +53,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://www.coderko.tech`,
+        siteUrl: `https://stanleygarbo.com`,
       },
     },
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://www.coderko.tech',
-        sitemap:`https://www.coderko.tech/sitemap.xml`,
+        host: 'https://stanleygarbo.com',
+        sitemap:`https://stanleygarbo.com/sitemap.xml`,
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },

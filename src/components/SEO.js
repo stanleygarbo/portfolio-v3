@@ -5,25 +5,26 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({ description, lang, meta, title, image, canonicalHref}) {
-//   const { site,file } = useStaticQuery(
-//     graphql`
-//       query {
-//         site {
-//           siteMetadata {
-//             title
-//             description
-//             author
-//           }
-//         }
-//         file(name:{eq: "final-logo"})
-//         {
-//           publicURL
-//         }
-//       }
-//     `
-//   )
+  const { site,file } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+          }
+        }
+        file(name:{eq: "gatsby-icon"})
+        {
+          publicURL
+        }
+      }
+      
+    `
+  )
 
-//   const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || site.siteMetadata.description
 
   return (
     <Helmet
@@ -31,56 +32,63 @@ function SEO({ description, lang, meta, title, image, canonicalHref}) {
         lang,
       }}
       title={title}
-    //   titleTemplate={`${site.siteMetadata.title} | %s`}
+      titleTemplate={`${site.siteMetadata.title} | %s`}
       link={[
-        // {
-        //   rel:`canonical`,
-        //   href:canonicalHref
-        // },
-        // {
-        //   rel: "icon", 
-        //   type: "image/png", 
-        //   href: file.publicURL
-        // }
+        {
+          rel:`canonical`,
+          href:canonicalHref
+        },
+        {
+          rel: "icon", 
+          type: "image/png", 
+          href: file.publicURL
+        }
+        ,{
+          rel:"preconnect",
+          href:"https://fonts.gstatic.com"
+        },{
+          rel:"stylesheet",
+          href:"https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700&display=swap"
+        }
       ]}
-    //   meta={[
-    //     {
-    //       name: `description`,
-    //       content: metaDescription,
-    //     },
-    //     {
-    //       property: `og:title`,
-    //       content: title,
-    //     },
-    //     {
-    //       property: `og:description`,
-    //       content: metaDescription,
-    //     },
-    //     {
-    //       property: `og:type`,
-    //       content: `website`,
-    //     },
-    //     {
-    //       property: `og:image`,
-    //       content: image,
-    //     },
-    //     {
-    //       name: `twitter:card`,
-    //       content: `summary`,
-    //     },
-    //     {
-    //       name: `twitter:creator`,
-    //       content: site.siteMetadata.author,
-    //     },
-    //     {
-    //       name: `twitter:title`,
-    //       content: title,
-    //     },
-    //     {
-    //       name: `twitter:description`,
-    //       content: metaDescription,
-    //     },
-    //   ].concat(meta)}
+      meta={[
+        {
+          name: `description`,
+          content: metaDescription,
+        },
+        {
+          property: `og:title`,
+          content: title,
+        },
+        {
+          property: `og:description`,
+          content: metaDescription,
+        },
+        {
+          property: `og:type`,
+          content: `website`,
+        },
+        {
+          property: `og:image`,
+          content: image,
+        },
+        {
+          name: `twitter:card`,
+          content: `summary`,
+        },
+        {
+          name: `twitter:creator`,
+          content: site.siteMetadata.author,
+        },
+        {
+          name: `twitter:title`,
+          content: title,
+        },
+        {
+          name: `twitter:description`,
+          content: metaDescription,
+        },
+      ].concat(meta)}
     />
   )
 }

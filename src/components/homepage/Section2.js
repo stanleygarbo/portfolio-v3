@@ -13,24 +13,25 @@ import Socials from '../Socials'
 const Container=styled.div`
     width:100%;
     color:#444;
+    padding:50px 150px;
 
     .wrapper{
-        max-width:1300px;
+        max-width:1100px;
         margin:0 auto;
         display:flex;
         justify-content:space-between;
-        padding: 100px 0px;
+        padding: 100px 0px 50px 0px;
 
         .img{
-            height:490px;
+            width:300px;
+            height:390px;
+            right:-30px;
             background-image:url(${CharacterIllustration});
-            width:400px;
             background-repeat:no-repeat;
-            background-size:260% 260%;
+            background-size:cover;
             background-position:center;
             position:relative;
             top:-10px;
-            right:-66px;
 
             &::before{
                 content:'';
@@ -44,16 +45,37 @@ const Container=styled.div`
 
             p{
                 position:absolute;
-                left:-80px;
                 bottom:30px;
-                font-size:140px;
+                font-size:100px;
+                left:-40px;
                 font-weight:700;
             }
         }
 
+        .vertical-text{
+            writing-mode: vertical-rl;
+            letter-spacing:7px;
+            position:relative;
+
+            &::before{
+                position:absolute;
+                content:'';
+                width:1px;
+                height:173px;
+                background:#444;
+                top:220px;
+                left:50%;
+                right:50%;
+            }
+        }
+
         .about-text{
+            display:flex;
+            flex-direction:column;
+            align-items:end;
+
             h1{
-                font-size:120px;
+                font-size:80px;
                 position:relative;
                 top:-50px;
                 letter-spacing:10px;
@@ -81,7 +103,7 @@ const Container=styled.div`
 
             p{
                 margin-top:70px;
-                font-size:30px;
+                font-size:22px;
                 width:390px;
                 font-weight:300;
             }
@@ -90,17 +112,19 @@ const Container=styled.div`
     }
 
     .wrapper2{
-        max-width:1300px;
+        max-width:1100px;
         margin:0 auto;
-        padding-top:100px;
+        padding: 100px 0px 0px 0px;
         display:flex;
 
         section{
             width:50%;
+            display:flex;
+            flex-direction:column;
 
             h1{
                 letter-spacing:5px;
-                font-size:40px;
+                font-size:30px;
                 font-weight:500;
                 position:relative;
                 margin-bottom:90px;
@@ -108,20 +132,22 @@ const Container=styled.div`
                 &::before{
                     content:'';
                     position:absolute;
-                    width:200px;
-                    height:30px;
                     background:url(${Zigzag});
                     background-repeat:no-repeat;
                     background-position:center;
+                    
+                    width:130px;
+                    height:20px;
                     bottom:-30px;
                     left:140px;
                 }
             }
 
             p{
-                font-size:30px;
                 font-weight: 300;
                 max-width:490px;
+                font-size:22px;
+                padding-right:50px;
             }
 
             .icons{
@@ -131,99 +157,168 @@ const Container=styled.div`
 
                 img{
                     margin:0px 60px 60px 0px;
-                    width:100px;
+                    width:70px;
                 }
             }
         }
     }
 
-    @media (max-width:1600px){
-        padding:100px;
-        .wrapper{
-            .img{
-                p{
-                    font-size:100px;
-                }
-            }
     
-            .about-text{
-                h1{
-                    font-size:100px;
-                }
-            }
-        }
-    }
-
-
-
-    @media (max-width:1480px){
-        padding:50px 150px;
-        .wrapper{
-            padding: 100px 0px 50px 0px;
-            .img{
-                width:300px;
-                height:390px;
-                right:-30px;
-
-                p{
-                    font-size:100px;
-                    left:-40px;
-                }
-            }
-    
-            .about-text{
-                z-index:2;
-                h1{
-                    font-size:100px;
-                }
-                p{
-                    font-size:25px;
-                }
-            }
-        }
-
-        .wrapper2{
-            padding: 100px 0px 0px 0px;
-
-            section{
-                h1{
-                    font-size:30px;
-                    
-                    &::before{
-                        width:130px;
-                        height:20px;
-                        bottom:-30px;
-                        left:140px;
-                    }
-                }
-                p{
-                    font-size:22px;
-                    padding-right:50px;
-                }
-                .icons{
-                    img{
-                        width:70px;
-                    }
-                }
-            }
-        }
-    }
-
     @media (max-width:1194px){
         padding:100px 50px;
 
         .wrapper{
-    
+            justify-content:center;
+            align-items:center;
+
+                
+            .vertical-text{
+                display:none;
+            }
+
             .about-text{
                 z-index:2;
+                justify-content:flex-start;
+
                 h1{
                     font-size:60px;
+
+                    &::after{
+                        right:10px;
+                    }
                 }
+            }
+
+            .img{
+                margin-right:100px;
             }
         }
 
+        .wrapper2{
+            justify-content:center;
+            
+            section{
+                width:380px;
 
+                .icons{
+                    img{
+                        width:65px;
+                    }
+                }
+            }
+        }
     }
+    
+    @media (max-width:950px){
+        .wrapper{
+            .about-text{
+                h1{
+                    top:0;
+                    font-size:40px;
+                    
+                    &::after,&::before{
+                        height:4px;
+                    }
+
+                    &::before{
+                        bottom:-20px;
+                    }
+
+                    &::after{
+                        bottom:-40px;
+                    }
+                }
+                p{
+                    width:300px;
+                    font-size:20px;
+                }
+            }
+            .img{
+                width:250px;
+                height:310px;
+                p{
+                    font-size:40px;
+                }
+            }
+        }
+        
+        .wrapper2{
+            section{
+                width:320px;
+                .icons{
+                    img{
+                        width:45px;
+                        margin-right:20px;
+                        margin-bottom:20px;
+                    }
+                }
+                h1{
+                    margin-bottom:50px;
+
+                    &::before{
+                        height:4px;
+                    }
+                }
+                p{
+                    font-size:20px;
+                }
+            }
+        }
+    }
+
+    
+    
+    @media (max-width:750px){
+        .wrapper{
+            flex-direction:column;
+            padding:0 30px;
+            .about-text{
+                width:100%;
+                p{
+                    width:100%;
+                }
+            }
+
+            .img{
+                width:100%;
+                margin-right:50px;
+                margin-bottom:100px;
+                height:400px;
+                background-position-y:30%;
+            }
+        }
+        
+        .wrapper2{
+            flex-direction:column;
+            align-items:center;
+            padding:80px 30px 0px 30px;
+
+            section:nth-child(2){
+                margin-top:80px;
+            }
+
+            section{
+                width:100%;
+            }
+
+        }
+    }
+
+    @media (max-width:570px){
+        padding: 100px 30px;
+        .wrapper{
+            .img{
+                width:90%;
+                height:250px;
+                background-size:135%;
+            }
+            padding:0;
+        }
+        .wrapper2{
+            padding:80px 0px 0px 0px;
+        }
+    }
+
 
 `
 
@@ -231,25 +326,28 @@ const Container=styled.div`
 
 const Section2 = () => {
     return (
-        <Container>
+        <Container id='about'>
             <div className='wrapper'>
                 <div className='img'>
                     <p>01</p>
                 </div>
+                <div className='vertical-text'>Stanley Garbo</div>
                 <div className='about-text'>
                     <h1>ABOUT ME</h1>
                     <p>
-                        I am a student who loves to do something
+                        I am a senior high student at ACLC College of Ormoc who does random side projects 
+                        with coding just to get over boredom
                     </p>
                     <Socials direction='row' style={{marginTop:'70px'}}/>
                 </div>
             </div>
             <div className='wrapper2'>
                 <section>
-                    <h1>WHAT I LOVE</h1>
+                    <h1>MY PASSION</h1>
                     <p>
-                        Laborum in tempor nulla do ut.
-                        Labore duis qui officia et ipsum enim amet eiusmod labore ullamco.
+                        Ever since I started learning code I've become really interested to it which
+                        made me delve deeper into learning not just the basics but also some advanced frameworks
+                        associated with tech. 
                     </p>
                 </section>
                 <section>

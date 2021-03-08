@@ -13,29 +13,42 @@ const Container = styled.div`
         & > * {
             margin-right:20px;
         }
+    `}
     
-    
-    
+    ${props=>props.direction === 'column' &&
+    `
+        flex-direction:column;
+        & > * {
+            margin-bottom:10px;
+        }
     `}
 
     a{
         img{
-            width:60px;
+            width:${props=>props.small? '38px' : '50px'};
+        }
+    }
+
+    @media (max-width:950px){
+        a{
+            img{
+                width:40px;
+            }
         }
     }
 
 `
 
-const Socials = ({style,direction}) => {
+const Socials = ({style,direction,small}) => {
     return (
-        <Container style={style} direction = {direction}>
-            <a>
+        <Container style={style} direction = {direction} small={small}>
+            <a target='blank' href='https://www.behance.net/stanleygarbo'>
                 <img src={BehanceIcon}></img>
             </a>
-            <a>
+            <a target='blank' href='https://www.facebook.com/stanley.garbo29'>
                 <img src={FacebookIcon}></img>
             </a>
-            <a>
+            <a target='blank' href='https://www.instagram.com/garbo.stanley/'>
                 <img src={InstagramIcon}></img>
             </a>
         </Container>

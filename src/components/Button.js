@@ -28,10 +28,17 @@ const Container = styled.div`
             transform:scaleX(1.11);
         }
     }
-`
 
-const StyledPath = styled.path`
-    // transform:scaleX(1.5) translateX(-40px);
+    @media (max-width:570px){
+        width:140px;
+
+        &::before{
+            left:-20px;
+            bottom:-7px;
+            width:60px;
+            height:60px;
+        }
+    }
 `
 
 const Button = ({children,style}) => {

@@ -11,10 +11,10 @@ const Container = styled.div`
     color:#444;
     min-height:100vh;
     position:relative;
-    padding:0px 100px;
+    padding:0px 150px;
 
     .wrapper{
-        max-width:1300px;
+        max-width:1100px;
         margin:0 auto;
         height:100%;
 
@@ -31,7 +31,7 @@ const Container = styled.div`
                 font-size:20px;
             }
             h2{
-                font-size:100px;
+                font-size:80px;
                 position:relative;
 
                 &::before{
@@ -47,9 +47,9 @@ const Container = styled.div`
             }
 
             p{
-                margin-top:40px;
+                margin-top:22px;
                 font-weight:300;
-                font-size:30px;
+                font-size:25px;
                 width:390px;
             }
         }
@@ -69,22 +69,56 @@ const Container = styled.div`
 
     }
 
-    
-    @media (max-width:1480px){
-        padding:0px 150px;
 
+    @media (max-width:950px){
         .wrapper{
             .text-group{
                 h2{
-                    font-size:80px;
-                }
-                p{
-                    font-size:22px;
+                    font-size:60px;
+                    &::before{
+                        width:30%;
+                    }
                 }
             }
         }
     }
 
+
+    @media (max-width:750px){
+        .wrapper{
+            .text-group{
+                left:50px;
+                top:15vh;
+            }
+            .img{
+                width:100vw;
+                height:40vh;
+            }
+        }
+    }
+
+
+    @media (max-width:570px){
+        .wrapper{
+            .text-group{
+                left:30px;
+                h1{
+                    font-weight:500;
+                }
+                h2{
+                    font-size: 40px;
+                }
+                p{
+                    font-size:18px;
+                    width:300px;
+                }
+            }
+            .img{
+                width:100vw;
+                height:42vh;
+            }
+        }
+    }
 
 `
 
@@ -95,7 +129,7 @@ const Section1 = () => {
                 <div className='text-group'>
                     <h1>Hello, I am</h1>
                     <h2>Stanley Garbo</h2>
-                    <p>Web Designer / Front-end Developer</p>
+                    <p>A young and curious developer && Student</p>
                     {/* <Socials direction='row' style={{marginTop:'40px'}}/> */}
                     <Button style={{marginTop:'40px'}}>CONTACT</Button>
                 </div>
