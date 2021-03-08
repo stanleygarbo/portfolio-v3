@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import styled from 'styled-components'
-import SEO from '../components/seo'
+import SEO from '../components/SEO'
 import Socials from '../components/Socials'
 import WavyPattern from '../images/wavy-pattern.svg'
 
