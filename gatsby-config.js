@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Stanley Garbo - Portfolio`,
-    description: `A fullstack developer's Portfolio Website. This site contains some of his coding projects`,
+    title: `Stanley Garbo | Web developer and web designer Philippines`,
+    description: `Builds and designs websites according to your needs`,
     author: `@stanleygarbo`,
   },
   plugins: [

@@ -129,7 +129,7 @@ const Section1 = () => {
                 <div className='text-group'>
                     <h1>Hello, I am</h1>
                     <h2>Stanley Garbo</h2>
-                    <p>A young and curious developer && Student</p>
+                    <p>A young and curious developer from Ormoc City</p>
                     {/* <Socials direction='row' style={{marginTop:'40px'}}/> */}
                     <Button style={{marginTop:'40px'}}>CONTACT</Button>
                 </div>

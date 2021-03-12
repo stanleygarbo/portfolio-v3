@@ -335,8 +335,8 @@ const Section2 = () => {
                 <div className='about-text'>
                     <h1>ABOUT ME</h1>
                     <p>
-                        I am a senior high student at ACLC College of Ormoc who does random side projects 
-                        with coding just to get over boredom
+                        I am currently a senior high student at ACLC College of Ormoc. 
+                        I build and develop websites according to your needs.
                     </p>
                     <Socials direction='row' style={{marginTop:'70px'}}/>
                 </div>
