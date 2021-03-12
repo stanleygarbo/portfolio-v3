@@ -23,7 +23,7 @@ rank: 1
 
 # The New Ormoc City App: A case study
 
->Ormoc City's economy has been growing quite significantly over the recent years. There were innovations, new tech and new businesses. So I built an online platform for the City's technological advancement, to help new local businesses get attention. The platform will also be useful for locals as well as tourists since the platform was mainly designed to be a digital hub for information that's centered around the City and what it has to offer.
+>Ormoc City has been growing quite significantly over the recent years. There were innovations, new tech and new businesses. So I built an online platform for the City's technological advancement, to help new local businesses get attention. The platform will also be useful for locals as well as tourists since the platform was mainly designed to be a digital hub for information that's centered around the City and what it has to offer.
 
 </div>
 
@@ -95,7 +95,7 @@ rank: 1
 <div markdown="1" class="right">
 
 ## Integration with the contact tracing system
->One special feature of the app is that it can be integrated with the current contact tracing system in Ormoc (with collaboration). This feature has no certainty of being released unless if this project pushes through. I wanted this feature to be available mainly because of my observations and assumptions that users of the contact tracing system aren't able to retrieve their QR codes easily once they lose it without. So I thought about bringing this feature to help them get or retrieve their QR codes with ease.  
+>One special feature of the app is that it can be integrated with the current contact tracing system in Ormoc (with collaboration). This feature has no certainty of being released unless if this project pushes through. I wanted this feature to be available mainly because of my observations and assumptions that users of the contact tracing system aren't able to retrieve their QR codes easily once they lose it. So I thought about bringing this feature to help them get or retrieve their QR codes with ease.  
 
 </div>
 
