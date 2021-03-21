@@ -271,6 +271,9 @@ const Links = ({scrollY,isInMenu,onClick}) =>{
         <li className='hoverable-text' onClick={onClick}>
             <a href='mailto:stanleygarbo@gmail.com'>Contact</a>
         </li>
+        <li className='hoverable-text' onClick={onClick}>
+            <a href='https://www.coderko.tech'>Blogs</a>
+        </li>
     </Ul>
 }
 
