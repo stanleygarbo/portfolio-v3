@@ -4,7 +4,7 @@ title: axie
 slug: axiemanagers.io
 tags: React,TypeScript,Golang,PostgreSQL,Redis,Caddy,Docker
 summary: axiemanagers.io - a tool for axie managers in order for them to track their scholars. Has gotten to 3k - 4k daily active users.
-image: https://res.cloudinary.com/dr4q1cnig/image/upload/v1630918318/portfolio%20images/am1_xw1fci.png
+image: https://res.cloudinary.com/dr4q1cnig/image/upload/v1631085226/portfolio%20images/am1_frijyr.png
 rank: 1
 ---
 
