@@ -38,10 +38,10 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#7555f5`,
         display: `standalone`,
-        icon:`src/images/gatsby-icon.png`
+        icon: `src/images/gatsby-icon.png`,
       },
     },
-    // { 
+    // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
     //     // The property ID; the tracking code won't be generated without it
@@ -57,15 +57,15 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: 'https://stanleygarbo.com',
-        sitemap:`https://stanleygarbo.com/sitemap.xml`,
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
+        host: "https://stanleygarbo.com",
+        sitemap: `https://stanleygarbo.com/sitemap.xml`,
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
   ],
 }
